@@ -1,0 +1,20 @@
+/*1. Опишите все известные вам способы позиционирования 5 элементов по центру, каждый из которых должен занимать 20%. */
+
+/* Даем всем дочерним элементам в блоке свойство  min-width: 20% и display: inline-block при этом прописываем блоки в строку без подравнивания кода. Вертикальное центрирование производим свойством vertical-align: middle
+прим.
+  <div class="container">
+      <div class="block">test</div><div class="block">test</div><div class="block">test</div><div class="block">test</div><div class="block">test</div>
+    </div>
+*/
+
+/* Даем контейнеру свойство display:flex и align-items: center а всем дочерним элементам min-width: 20%. Если дочерний элемент строчный, прописываем ему display: block*/
+
+/* Даем контейнеру свойство display:flex а всем дочерним элементам прописываем  min-width: 20% и margin: auto*/
+
+/*2. Опишите все известные вам способы позиционирования модального окна, по центру экрана. */
+
+/* Прописываем родительскому блоку  position: relative а дочернему блоку position: absolute; top: 50%; left: 50%; transform: translate(0, -50%);*/
+
+/* Прописываем родительскому блоку display: flex, align-items: center и justify-content: center;*/
+
+/* Прописываем родительскому блоку display: grid а дочернему  margin: auto*/

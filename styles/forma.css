@@ -1,0 +1,67 @@
+:root {
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 30px;
+}
+
+.formContainer {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: start;
+  background-color: #e9e9e9;
+  padding: 40px 50px;
+  border-radius: 10px;
+}
+
+.headerInfo {
+  font-size: 20px;
+}
+
+.info {
+  display: block;
+  padding: 15px;
+  margin-top: 5px;
+  border: none;
+  font-size: initial;
+}
+
+.btnSignIn {
+  padding: 4px;
+  cursor: pointer;
+  background-color: green;
+  border: 2px solid #003822;
+  color: black;
+}
+
+.btnSignIn:hover {
+  background-color: #003822;
+  color: white;
+  transition: 0.5s;
+}
+
+.heading,
+.info {
+  margin-bottom: 30px;
+}
+
+.headerInfo,
+.btnSignIn {
+  font-weight: bold;
+}
+
+.info,
+.btnSignIn {
+  min-width: 400px;
+  border-radius: 5px;
+}
