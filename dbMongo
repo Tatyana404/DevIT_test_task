@@ -1,0 +1,48 @@
+db.createCollection('posts', {
+  validator:{
+    $jsonSchema:{
+      bsonType: "object",
+      properties: {
+        title: { "bsonType": "string" },
+        content: { "bsonType": "string" },
+        author: { "bsonType": "string" },
+        like: { "bsonType": "int" },
+        dislike: { "bsonType": "int" }
+      }
+    }
+  }
+});
+
+//Заполним таблицу данными для работы
+
+db.posts.insertMany([
+  {title: 'test1', content:'test1', author:'testovich1', like:57, dislike:573},
+  {title: 'test2', content:'test2', author:'testovich2', like:65, dislike:64},
+  {title: 'test3', content:'test3', author:'testovich3', like:3960, dislike:5734},
+  {title: 'test4', content:'test4', author:'testovich4', like:379, dislike:579},
+  {title: 'test5', content:'test5', author:'testovich5', like:42, dislike:364},
+  {title: 'test6', content:'test6', author:'testovich6', like:76, dislike:9},
+  {title: 'test7', content:'test7', author:'testovich7', like:1, dislike:4},
+  {title: 'test8', content:'test8', author:'testovich8', like:445, dislike:69},
+  {title: 'test9', content:'test9', author:'testovich9', like:3940, dislike:475},
+  {title: 'test10', content:'test10', author:'testovich10', like:36, dislike:583},
+]);
+
+// Выведите 5 записей из коллекции posts пропустив первые 5
+db.posts.find().skip(5).limit(5)
+
+// Выведите все записи у которых like больше 100
+db.posts.find({like:{$gt:100}})
+
+// Добавьте новую запись в коллекцию posts
+db.posts.insertOne(  {title: 'test11', content:'test11', author:'testovich11', like:46, dislike:75})
+
+// Выведите список авторов и их общее количество like
+db.posts.aggregate([
+  {
+    $group:{
+      _id:'$author',
+      numberOfLikes: {$sum: '$like'}
+    }
+  }
+])
