@@ -1,6 +1,6 @@
 /*1. Опишите все известные вам способы позиционирования 5 элементов по центру, каждый из которых должен занимать 20%. */
 
-/* Даем всем дочерним элементам в блоке свойство  min-width: 20% и display: inline-block при этом прописываем блоки в строку без подравнивания кода. Вертикальное центрирование производим свойством vertical-align: middle
+/* Даем всем дочерним элементам в блоке свойство  min-width: 20% и display: inline-block при этом прописываем блоки в строку без выравнивания кода. Вертикальное центрирование производим свойством vertical-align: middle
 прим.
   <div class="container">
       <div class="block">test</div><div class="block">test</div><div class="block">test</div><div class="block">test</div><div class="block">test</div>
