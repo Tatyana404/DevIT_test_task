@@ -11,6 +11,8 @@ git switch dev
 # Через редактор cat вводим необходимый нам текст ###May be in future, после чего перенаправляем >> его в файл Readme.md, который создастся автоматически
 cat >> Readme.md
 
+###May be in future
+
 # Дабавляем файл Readme.md в отслеживаемые
 git add Readme.md
 
