@@ -9,32 +9,31 @@
     <title>Form</title>
   </head>
   <body>
-    <section class="container">
-      <h1 class="heading">
-        Please fill out this form to log into your account
-      </h1>
-      <form class="formContainer">
-        <label class="headerInfo">
-          Email
-          <input
-            class="info"
-            name="email"
-            placeholder="E-mail"
-            type="email"
-            required
-          />
-        </label>
-        <label class="headerInfo">
-          Password
-          <input
-            class="info"
-            name="password"
-            placeholder="Password"
-            type="password"
-            required
-          />
-        </label>
-        <button class="btnSignIn" type="submit">Sign in</button>
+    <section>
+      <h1 class="header">Please fill out the form to log in to your account</h1>
+
+      <form class="form">
+        <label for="email" class="label">E-mail</label>
+        <input
+          placeholder="E-mail"
+          class="input"
+          name="email"
+          type="email"
+          id="email"
+          required
+        />
+
+        <label for="password" class="label">Password</label>
+        <input
+          placeholder="Password"
+          name="password"
+          type="password"
+          class="input"
+          id="password"
+          required
+        />
+
+        <button class="sign-in-btn" type="submit">Sign in</button>
       </form>
     </section>
   </body>
