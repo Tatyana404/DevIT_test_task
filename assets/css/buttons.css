@@ -1,47 +1,57 @@
 * {
   box-sizing: border-box;
-  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-.btn-container {
-  margin-top: 30px;
-}
-
-.active,
-.disabled,
-.danger {
-  padding: 10px 30px;
+body {
   font-family: sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+.container-btns {
+  justify-content: space-between;
+  min-width: 500px;
+  display: flex;
+}
+
+.active-btn,
+.disabled-btn,
+.danger-btn {
+  transition: background 0.3s ease-out;
   border-radius: 10px;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.active,
-.disabled {
+.active-btn {
+  border: 2px solid green;
   color: green;
-  border: 3px solid green;
 }
 
-.active:hover,
-.danger:hover {
+.disabled-btn {
+  border: 2px solid gray;
+  color: gray;
+}
+
+.danger-btn {
+  border: 2px solid red;
+  color: red;
+}
+
+.active-btn:hover,
+.danger-btn:hover {
   color: white;
 }
 
-.active:hover {
-  background-color: green;
+.active-btn:hover {
+  background: green;
 }
 
-.disabled {
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.danger {
-  color: red;
-  border: 3px solid red;
-}
-
-.danger:hover {
-  background-color: red;
+.danger-btn:hover {
+  background: red;
 }
