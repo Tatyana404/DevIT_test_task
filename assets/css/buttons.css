@@ -33,7 +33,11 @@ body {
   color: green;
 }
 
-.disabled-btn {
+.active-btn:active {
+  box-shadow: 2px 2px 5px green;
+}
+
+.disabled-btn:disabled {
   border: 2px solid gray;
   color: gray;
 }

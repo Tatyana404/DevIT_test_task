@@ -54,6 +54,10 @@ body {
   color: #ffffff;
 }
 
+.sign-in-btn:active {
+  box-shadow: 2px 2px 5px #138808;
+}
+
 .input,
 .sign-in-btn {
   border-radius: 5px;
