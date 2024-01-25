@@ -1,4 +1,4 @@
-// Создадим коллекцию "posts"
+# Создадим коллекцию "posts"
 db.createCollection('posts', {
   validator:{
     $jsonSchema:{
@@ -14,7 +14,7 @@ db.createCollection('posts', {
   }
 });
 
-// Заполним коллекцию данными для работы
+# Заполним коллекцию данными для работы
 db.posts.insertMany([
   { title: "MongoDB Basics", content: "Introduction to MongoDB and its features.", author: "Alice", like: 10, dislike: 2 },
   { title: "Advanced MongoDB", content: "Deep dive into MongoDB's advanced features.", author: "Bob", like: 15, dislike: 3 },
@@ -29,18 +29,18 @@ db.posts.insertMany([
 ]);
 
 
-// Выведите 5 записей из коллекции posts пропустив первые 5
+# Выведите 5 записей из коллекции posts пропустив первые 5
 db.posts.find().skip(5).limit(5);
 
-// Выведите все записи у которых like больше 100
+# Выведите все записи у которых like больше 100
 db.posts.find({ like: { $gt: 100 } });
 
-// Добавьте новую запись в коллекцию posts
+# Добавьте новую запись в коллекцию posts
 db.posts.insertOne({
   title: "Understanding Indexes in MongoDB", content: "This post explains how indexes work in MongoDB and how to use them effectively.", author: "Kathy", like: 0, dislike: 0
 });
 
-// Выведите список авторов и их общее количество like
+# Выведите список авторов и их общее количество like
 db.posts.aggregate([
   {
     $group: {
