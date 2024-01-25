@@ -2,15 +2,15 @@
 
 ## Файловая структура  
 
->/
->--/var/
->----/www/
->------/html/
->--------/index.html
->--------/404.html
->--------/.htaccess
->----/logs/
->------/access.log
+>/  
+>--/var/  
+>----/www/  
+>------/html/  
+>--------/index.html  
+>--------/404.html  
+>--------/.htaccess  
+>----/logs/  
+>------/access.log  
 
 ## Задание
 
@@ -24,19 +24,19 @@
 6. Выведите на экран все файлы в папке **var**;  
 7. Создайте новый файл **503.html** в папке **html** с следующим содержимым:
 
-><html>
->  <head>
->   <title>503</title>
->  </head>
-></html>
+><html>  
+> <head>  
+>  <title>503</title>  
+> </head>  
+></html>  
 
 ## Пример решения  
 
-> #Упаковать папку logs в архив logs_backup.zip
->cd /var/ # Перехожу в папку var
->zip -v # Проверяю наличие пакета zip
->sudo apt install zip # Устанавливаю пакет zip
->zip -r ./logs_backup.zip ./logs # Упаковываю содержимое папки logs в файл logs_backup.zip с флагом -r для рекурсивного добавления файлов
+> #Упаковать папку logs в архив logs_backup.zip  
+>cd /var/ # Перехожу в папку var  
+>zip -v # Проверяю наличие пакета zip  
+>sudo apt install zip # Устанавливаю пакет zip  
+>zip -r ./logs_backup.zip ./logs # Упаковываю содержимое папки logs в файл logs_backup.zip с флагом -r для рекурсивного добавления файлов  
 
 # GIT внесение изменений  
 
@@ -68,81 +68,81 @@
 1. Напишите функцию **cloneDeep** таким образом, чтобы она была способна клонировать переданный как параметр объект.  
 
 2. Свертка. Используйте метод reduce в комбинации с concat для свёртки массива массивов в один массив, у которого есть все элементы входных массивов.  
->var arrays = [[1, 2, 3], [4, 5], [6]];
->// Ваш код
+>var arrays = [[1, 2, 3], [4, 5], [6]];  
+>// Ваш код  
 >// → [1, 2, 3, 4, 5, 6]  
 
 3.  Допустим, у вас есть функция primitiveMultiply, которая в 50% случаев перемножает 2 числа, а в остальных случаях выбрасывает исключение типа MultiplicatorUnitFailure. Напишите функцию, обёртывающую эту, и просто вызывающую её до тех пор, пока не будет получен успешный результат.
->function MultiplicatorUnitFailure() {}
->function primitiveMultiply(a, b) {
-> if (Math.random() < 0.5)
->  return a * b;
-> else
->  throw new MultiplicatorUnitFailure();
->}
->function reliableMultiply(a, b) {
->  // Ваш код
->}
+>function MultiplicatorUnitFailure() {}  
+>function primitiveMultiply(a, b) {  
+> if (Math.random() < 0.5)  
+>  return a * b;  
+> else  
+>  throw new MultiplicatorUnitFailure();  
+>}  
+>function reliableMultiply(a, b) {  
+>  // Ваш код  
+>}  
 >console.log(reliableMultiply(8, 8));  
 
 4. Расширить прототип Array, добавив к нему метод добавления элемента в начало без использование unshift.
->var arr = [1, 2, 3];
->arr.append(0);
+>var arr = [1, 2, 3];  
+>arr.append(0);  
 >//[0, 1, 2, 3]  
 
 5. Выведите все элементы массива используя рекурсию.  
->var arr = ['Solnce', 'vishlo', 'iz', 'za', 'tuchi'];
->fuction recuseLog(_ Ваши атрибуты _) { }
+>var arr = ['Solnce', 'vishlo', 'iz', 'za', 'tuchi'];  
+>fuction recuseLog(_ Ваши атрибуты _) { }  
 >recuseLog(arr);  
 6. Написать функцию для выполнения параллельных вычислений без использования Promise.  
->var a = function(one, two) {
-> return one + two
->}
->var b = function() {
-> return false;
->}
->paralell([[a, [1, 2]], [b]], function(results) {
-> console.log(results); // [3, false]
->});
+>var a = function(one, two) {  
+> return one + two  
+>}  
+>var b = function() {  
+> return false;  
+>}  
+>paralell([[a, [1, 2]], [b]], function(results) {  
+> console.log(results); // [3, false]  
+>});  
 7. Сделать функцию поиска значений в массиве.  
->Синтаксис: array_find(arr: array, search: string|regex): string|number[]|null
->Пример:
->let result = array_find(testData, '/^raf._/i') // ["Rafshan"]
+>Синтаксис: array_find(arr: array, search: string|regex): string|number[]|null  
+>Пример:  
+>let result = array_find(testData, '/^raf._/i') // ["Rafshan"]  
 >let result2 = array_find(testData, "Rafshan") // ["Rafshan"]  
 8. Сделать функцию, которая обрезает массив до указанного значения.  
->Синтаксис: array_skip_until(arr: array, value: any): any[]
->Пример:
->let result = array_skip_until(testData, 2) // [2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]
->let result2 = array_skip_until(testData, "Rafshan") // ["Rafshan", "ashan@example.com", true, false]
+>Синтаксис: array_skip_until(arr: array, value: any): any[]  
+>Пример:  
+>let result = array_skip_until(testData, 2) // [2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]  
+>let result2 = array_skip_until(testData, "Rafshan") // ["Rafshan", "ashan@example.com", true, false]  
 >let result3 = array_skip_until(testData, "asd") // []  
 9. Создать функцию, которая нормализует данные в массиве исключая или преобразуя не подходящие.  
->Доступные шаблоны:
->'string' => строки,
->'number' => числа,
->'int' => целые числа,
->'float' => числа с плавающей точкой,
->'bool' => true | false,
->'function' => функция,
->'array' => массив,
->Object => объект {name: 'string'}
->Синтаксис: array_normalize(arr: array, shema: string|Object[, transform: bool = false]): any[]
->Пример:
->let result = array_normalize(testData4, 'string') // ['Vasya', 'colya@example.com', 'Rafshan', 'ashan@example.com']
->let result2 = array_normalize(testData4, 'string', true) // ['1', '2', '1990', '85', '24', 'Vasya', 'colya@example.com', 'Rafshan', 'ashan@example.com']
->let result3 = array_normalize(testData4, {age: 'float'}) // []
+>Доступные шаблоны:  
+>'string' => строки,  
+>'number' => числа,  
+>'int' => целые числа,  
+>'float' => числа с плавающей точкой,  
+>'bool' => true | false,  
+>'function' => функция,  
+>'array' => массив,  
+>Object => объект {name: 'string'}  
+>Синтаксис: array_normalize(arr: array, shema: string|Object[, transform: bool = false]): any[]  
+>Пример:  
+>let result = array_normalize(testData4, 'string') // ['Vasya', 'colya@example.com', 'Rafshan', 'ashan@example.com']  
+>let result2 = array_normalize(testData4, 'string', true) // ['1', '2', '1990', '85', '24', 'Vasya', 'colya@example.com', 'Rafshan', 'ashan@example.com']  
+>let result3 = array_normalize(testData4, {age: 'float'}) // []  
 >let result4 = array_normalize(testData4, {age: 'float'}, true) // [{age: 20}, {age: 34}, {age: 46}, {age: 16}, {age: 99}, {age: 11}]  
 10. Сделать функцию, которая возвращает уникальные элементы массива.  
->Синтаксис: array_unique(arr: array): any[]
->Пример:
+>Синтаксис: array_unique(arr: array): any[]  
+>Пример:  
 >let result = array_unique(testData.concat(testData2)) // [1, 2, 1990, 85, 24, 5, 7, 8.1, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]  
 11. Сделать функцию, которая сможет делать срез данных с ассоциативного массива.  
->Синтаксис: array_pluck(arr: array, path: string): any[]
->Пример:
->let result = array_pluck(testData3, 'name') // ["Vasya", "Dima", "Colya", "Misha", "Ashan", "Rafshan"]
+>Синтаксис: array_pluck(arr: array, path: string): any[]  
+>Пример:  
+>let result = array_pluck(testData3, 'name') // ["Vasya", "Dima", "Colya", "Misha", "Ashan", "Rafshan"]  
 >let result2 = array_pluck(testData3, 'skills.php') // [0, 5, 8, 6, 0, 0]  
 12. Создать функцию которая создает объект на основании двух представленных массивов используя один как ключи, а другой как значения. Не подходящие ключи массивов должны быть исключены.  
->Синтаксис: array_combine(keys: array, values: array): Object
->Пример:
+>Синтаксис: array_combine(keys: array, values: array): Object  
+>Пример:  
 >let result = array_combine(testData, testData2) // {1: 1, 2: 2, 1990: 1990, 85: 85, 24: 24, "Vasya": 5, "colya@example.com": 7, "Rafshan": 8.1, "ashan@example.com": undefined}  
 
 # Mongo  
@@ -151,16 +151,16 @@
 
 База данных MongoDB содержит коллекции:
 posts - Записи -
->{
-> "properties": {
->  "\_id": { "bsonType": "objectId" },
->  "title": { "bsonType": "string" },
->  "content": { "bsonType": "string" },
->  "author": { "bsonType": "string" },
->  "like": { "bsonType": "int" },
->  "dislike": { "bsonType": "int" }
-> }
->}
+>{  
+> "properties": {  
+>  "\_id": { "bsonType": "objectId" },  
+>  "title": { "bsonType": "string" },  
+>  "content": { "bsonType": "string" },  
+>  "author": { "bsonType": "string" },  
+>  "like": { "bsonType": "int" },  
+>  "dislike": { "bsonType": "int" }  
+> }  
+>}  
 
 Все команды вы выполняете в **mongo shell**  
 
