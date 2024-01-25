@@ -1,71 +1,76 @@
-let testData = [
+"use strict";
+
+const testData = [
   1,
   2,
   1990,
   85,
   24,
-  'Vasya',
-  'colya@example.com',
-  'Rafshan',
-  'ashan@example.com',
+  "Vasya",
+  "colya@example.com",
+  "Rafshan",
+  "ashan@example.com",
   true,
   false,
 ];
-let testData2 = [1, 2, 1990, 85, 24, 5, 7, 8.1];
-let testData3 = [
+
+const testData2 = [1, 2, 1990, 85, 24, 5, 7, 8.1];
+
+const testData3 = [
   {
-    name: 'Vasya',
-    email: 'vasya@example.com',
+    name: "Vasya",
+    email: "vasya@example.com",
     age: 20,
     skills: { php: 0, js: -1, madness: 10, rage: 10 },
   },
   {
-    name: 'Dima',
-    email: 'dima@example.com',
+    name: "Dima",
+    email: "dima@example.com",
     age: 34,
     skills: { php: 5, js: 7, madness: 3, rage: 2 },
   },
   {
-    name: 'Colya',
-    email: 'colya@example.com',
+    name: "Colya",
+    email: "colya@example.com",
     age: 46,
     skills: { php: 8, js: -2, madness: 1, rage: 4 },
   },
   {
-    name: 'Misha',
-    email: 'misha@example.com',
+    name: "Misha",
+    email: "misha@example.com",
     age: 16,
     skills: { php: 6, js: 6, madness: 5, rage: 2 },
   },
   {
-    name: 'Ashan',
-    email: 'ashan@example.com',
+    name: "Ashan",
+    email: "ashan@example.com",
     age: 99,
     skills: { php: 0, js: 10, madness: 10, rage: 1 },
   },
   {
-    name: 'Rafshan',
-    email: 'rafshan@example.com',
+    name: "Rafshan",
+    email: "rafshan@example.com",
     age: 11,
     skills: { php: 0, js: 0, madness: 0, rage: 10 },
   },
 ];
-let testData4 = [
-  { name: 'Vasya', email: 'vasya@example.com', age: 20 },
-  { name: 'Dima', email: 'dima@example.com', age: 34 },
-  { name: 'Colya', email: 'colya@example.com', age: 46 },
-  { name: 'Misha', email: 'misha@example.com', age: 16 },
-  { name: 'Ashan', email: 'ashan@example.com', age: 99 },
-  { name: 'Rafshan', email: 'rafshan@example.com', age: 11 },
+
+const testData4 = [
+  { name: "Vasya", email: "vasya@example.com", age: 20 },
+  { name: "Dima", email: "dima@example.com", age: 34 },
+  { name: "Colya", email: "colya@example.com", age: 46 },
+  { name: "Misha", email: "misha@example.com", age: 16 },
+  { name: "Ashan", email: "ashan@example.com", age: 99 },
+  { name: "Rafshan", email: "rafshan@example.com", age: 11 },
   1,
   2,
   1990,
   85,
   24,
-  'Vasya',
-  'colya@example.com',
-  'Rafshan',
-  'ashan@example.com',
+  "Vasya",
+  "colya@example.com",
+  "Rafshan",
+  "ashan@example.com",
   true,
   false,
   [
@@ -77,13 +82,13 @@ let testData4 = [
           1990,
           85,
           24,
-          'Vasya',
-          'colya@example.com',
-          'Rafshan',
-          'ashan@example.com',
+          "Vasya",
+          "colya@example.com",
+          "Rafshan",
+          "ashan@example.com",
           true,
           false,
-          [{ name: 'Rafshan', email: 'rafshan@example.com', age: 11 }],
+          [{ name: "Rafshan", email: "rafshan@example.com", age: 11 }],
         ],
       ],
     ],
@@ -92,129 +97,45 @@ let testData4 = [
 
 /*1. Напишите функцию cloneDeep таким образом, чтобы она была способна клонировать переданный как параметр объект.*/
 
-const cloneDeep = obj => JSON.parse(JSON.stringify(obj));
+const cloneDeep = (obj) => JSON.parse(JSON.stringify(obj));
 
-/*console.log(cloneDeep(testData)) // (11) [1, 2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]*/
-
-/*console.log(cloneDeep(testData2)) // (8) [1, 2, 1990, 85, 24, 5, 7, 8.1]*/
-
-/*console.log(cloneDeep(testData3)) // 
-(6) [{…}, {…}, {…}, {…}, {…}, {…}]
-0: {name: "Vasya", email: "vasya@example.com", age: 20, skills: {…}}
-1: {name: "Dima", email: "dima@example.com", age: 34, skills: {…}}
-2: {name: "Colya", email: "colya@example.com", age: 46, skills: {…}}
-3: {name: "Misha", email: "misha@example.com", age: 16, skills: {…}}
-4: {name: "Ashan", email: "ashan@example.com", age: 99, skills: {…}}
-5:
-age: 11
-email: "rafshan@example.com"
-name: "Rafshan"
-skills:
-js: 0
-madness: 0
-php: 0
-rage: 10
-*/
-
-/*console.log(cloneDeep(testData4)) // 
-(18) [{…}, {…}, {…}, {…}, {…}, {…}, 1, 2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false, Array(1)]
-0: {name: "Vasya", email: "vasya@example.com", age: 20}
-1: {name: "Dima", email: "dima@example.com", age: 34}
-2: {name: "Colya", email: "colya@example.com", age: 46}
-3: {name: "Misha", email: "misha@example.com", age: 16}
-4: {name: "Ashan", email: "ashan@example.com", age: 99}
-5: {name: "Rafshan", email: "rafshan@example.com", age: 11}
-6: 1
-7: 2
-8: 1990
-9: 85
-10: 24
-11: "Vasya"
-12: "colya@example.com"
-13: "Rafshan"
-14: "ashan@example.com"
-15: true
-16: false
-17: Array(1)
-0: Array(1)
-0: Array(1)
-0: Array(12)
-0: 1
-1: 2
-2: 1990
-3: 85
-4: 24
-5: "Vasya"
-6: "colya@example.com"
-7: "Rafshan"
-8: "ashan@example.com"
-9: true
-10: false
-11: Array(1)
-0: {name: "Rafshan", email: "rafshan@example.com", age: 11}
-*/
+console.log(cloneDeep(testData4));
 
 /*2. Свертка. Используйте метод reduce в комбинации с concat для свёртки массива массивов в один массив, у которого есть все элементы входных массивов.*/
 
-const arrays = [[1, 2, 3], [4, 5], [6]];
-const result = arr => arr.reduce((result, value) => result.concat(value), []);
+const arrayOfArrays = [[1, 2, 3], [4, 5], [6]];
 
-/*console.log(result(arrays)) // [1, 2, 3, 4, 5, 6]*/
+const customFlat = (arr) =>
+  arr.reduce(
+    (accumulator, currentValue) => accumulator.concat(currentValue),
+    []
+  );
 
-/*Для решения этой задачи лучше использовать метод flat*/
+console.log(customFlat(arrayOfArrays));
 
-const result2 = arrays.flat();
+/*4. Расширить прототип Array, добавив к нему метод добавления элементов в начало без использование unshift.*/
 
-/*console.log(result2) // (6) [1, 2, 3, 4, 5, 6]*/
+const arrayOfNumbers = [1, 2, 3];
 
-/*3. Допустим, у вас есть функция primitiveMultiply, которая в 50% случаев перемножает 2 числа, а в остальных случаях выбрасывает исключение типа MultiplicatorUnitFailure. Напишите функцию, обёртывающую эту, и просто вызывающую её до тех пор, пока не будет получен успешный результат.*/
+Array.prototype.append = (...value) => [...value].concat(arrayOfNumbers);
 
-function MultiplicatorUnitFailure () {}
-
-function primitiveMultiply (a, b) {
-  if (Math.random() < 0.5) return a * b;
-  else throw new MultiplicatorUnitFailure();
-}
-
-function reliableMultiply (a, b) {
-  while (true) {
-    try {
-      return primitiveMultiply(a, b);
-    } catch (e) {
-      continue;
-    }
-  }
-}
-
-/*console.log(reliableMultiply(12,44)) // 582*/
-
-/*4. Расширить прототип Array, добавив к нему метод добавления элемента в начало без использование unshift.*/
-
-const arr = [1, 2, 3];
-Array.prototype.append = (...value) => [...value].concat(arr);
-
-/*arr.append(6,4,6,7,8) // (8) [6, 4, 6, 7, 8, 1, 2, 3]*/
+console.log(arrayOfNumbers.append(0));
 
 /*5. Выведите все элементы массива используя рекурсию.*/
 
-const arr = ['Solnce', 'vishlo', 'iz', 'za', 'tuchi'];
+const arrayOfStrings = ["Solnce", "vishlo", "iz", "za", "tuchi"];
 
-function recuseLog (array) {
-  if (array.length > 0) {
-    console.log(array.shift());
-    recuseLog(array);
+const recurseLog = (arr, index = 0) => {
+  if (index < arr.length) {
+    console.log(arr[index]);
+    recurseLog(arr, index + 1);
   }
-}
+};
 
-/*recuseLog(arr) // 
-Solnce
-vishlo
-iz
-za
-tuchi
-*/
+recurseLog(arrayOfStrings);
 
 /* 6. Написать функцию для выполнения параллельных вычислений без использования Promise.*/
+
 const a = function (one, two) {
   return one + two;
 };
@@ -223,67 +144,230 @@ const b = function () {
   return false;
 };
 
-const paralell = (functionOne, functionTwo) => {
-  const res = [];
-  functionOne.forEach(([func, thisArgs = []]) => {
-    setTimeout(() => res.push(func(...thisArgs)), 0);
+const parallel = (tasks, finalCallback) => {
+  const results = [];
+  let completedTasks = 0;
+
+  tasks.forEach((task, index) => {
+    setTimeout(() => {
+      const [func, args] = task;
+
+      const result = func ? func.apply(null, args || []) : undefined;
+
+      results[index] = result;
+
+      if (++completedTasks === tasks.length) {
+        finalCallback(results);
+      }
+    }, 0);
   });
-  setTimeout(functionTwo, 0, res);
 };
 
-/* paralell([[a, [5, 6]], [b]], function (results) {
+parallel([[a, [1, 2]], [b]], function (results) {
   console.log(results);
-}); // (2) [11, false]
-*/
+});
 
-/*8. Сделать функцию которая обрезает массив до указанного значения.*/
+/*7. Сделать функцию поиска значений в массиве.*/
 
-const array_skip_until = (arrey, info) => {
-  const searchTruncated = arrey.indexOf(info);
-  return arrey.slice(searchTruncated);
+const array_find = (arr, search) => {
+  let result;
+
+  if (typeof search === "string") {
+    result = arr.filter((item) => item === search);
+  } else if (search instanceof RegExp) {
+    result = arr.filter((item) => search.test(item.toString()));
+  } else {
+    return null;
+  }
+
+  return result.length > 0 ? result : null;
 };
 
-/*array_skip_until(testData,"Vasya") // (6) ["Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]*/
-/*array_skip_until(testData,2) // (10) [2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]*/
-/*array_skip_until(testData,8) // [false]*/
+console.log(array_find(testData, /^raf.*/i));
+console.log(array_find(testData, "Rafshan"));
 
-/*10. Сделать функцию которая возвращает уникальные элементы массива.*/
+/*8. Сделать функцию, которая обрезает массив до указанного значения.*/
 
-const array_unique = arrey => [...new Set(arrey)];
+const array_skip_until = (arr, value) => {
+  const index = arr.indexOf(value);
 
-/*console.log(testData.concat(testData2)) // [1, 2, 1990, 85, 24, 5, 7, 8.1, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]*/
+  return index !== -1 ? arr.slice(index) : [];
+};
 
-/*11. Сделать функцию которая сможет делать срез данных с ассоциативного массива.*/
+console.log(array_skip_until(testData, 2));
+console.log(array_skip_until(testData, "Rafshan"));
+console.log(array_skip_until(testData, "asd"));
 
-const array_pluck = (arr, path) => {
-  const pathSplit = path.split('.');
-  return arr.map(item => {
-    let sliceData = item;
-    for (const data of pathSplit) {
-      sliceData = sliceData[data];
+/*9. Создать функцию, которая нормализует данные в массиве исключая или преобразуя не подходящие.*/
+
+const array_normalize = (arr, schema, transform = false) => {
+  const checkAndTransform = (element, schema) => {
+    if (typeof schema === "object" && !Array.isArray(schema)) {
+      if (
+        typeof element !== "object" ||
+        element === null ||
+        Array.isArray(element)
+      ) {
+        return null;
+      }
+
+      const newObj = {};
+      let valid = true;
+
+      for (const key in schema) {
+        newObj[key] = checkAndTransform(element[key], schema[key]);
+
+        if (newObj[key] === null) {
+          valid = false;
+        }
+      }
+
+      return valid ? newObj : null;
     }
-    return sliceData;
+
+    if (schema === "array" && Array.isArray(element)) {
+      return element
+        .map((e) => checkAndTransform(e, schema))
+        .filter((e) => e !== null);
+    }
+
+    if (typeof element === "object" || typeof element === "function") {
+      return null;
+    }
+
+    switch (schema) {
+      case "string":
+        if (typeof element === "boolean" && !transform) {
+          return null;
+        }
+
+        return transform
+          ? typeof element !== "boolean"
+            ? String(element)
+            : null
+          : typeof element === "string"
+          ? element
+          : null;
+      case "number":
+        return transform
+          ? Number(element)
+          : typeof element === "number"
+          ? element
+          : null;
+      case "int":
+        if (transform) {
+          const parsed = parseInt(element);
+
+          return isNaN(parsed) ? null : parsed;
+        }
+
+        return Number.isInteger(element) ? element : null;
+      case "float":
+        if (transform) {
+          const parsed = parseFloat(element);
+
+          return isNaN(parsed) ? null : parsed;
+        }
+
+        return typeof element === "number" && !Number.isInteger(element)
+          ? element
+          : null;
+      case "bool":
+        return transform
+          ? Boolean(element)
+          : typeof element === "boolean"
+          ? element
+          : null;
+
+      default:
+        return null;
+    }
+  };
+
+  return arr.reduce((normalized, element) => {
+    const checkedElement = checkAndTransform(element, schema);
+
+    if (checkedElement !== null) {
+      normalized.push(checkedElement);
+    }
+
+    return normalized;
+  }, []);
+};
+
+console.log(array_normalize(testData4, "string"));
+console.log(array_normalize(testData4, "string", true));
+console.log(array_normalize(testData4, { age: "float" }));
+console.log(array_normalize(testData4, { age: "float" }, true));
+
+/*10. Сделать функцию, которая возвращает уникальные элементы массива.*/
+
+const array_unique = (arr) => [...new Set(arr)];
+
+console.log(array_unique(testData.concat(testData2)));
+
+/*11. Сделать функцию, которая сможет делать срез данных с ассоциативного массива.*/
+
+const array_pluck = (arr, key) => {
+  const keys = key.split(".");
+
+  return arr.map((obj) => {
+    let current = obj;
+
+    for (const k of keys) {
+      current = current && current[k];
+
+      if (current === undefined) {
+        break;
+      }
+    }
+
+    return current;
   });
 };
 
-/*array_pluck(testData3,"name") // (6) ["Vasya", "Dima", "Colya", "Misha", "Ashan", "Rafshan"]*/
-/*array_pluck(testData3,"skills.php") // [0, 5, 8, 6, 0, 0]*/
+console.log(array_pluck(testData3, "name"));
+console.log(array_pluck(testData3, "skills.php"));
 
-/*12. Создать функцию которая создает объект на основании двух представленных массивов используя один как ключи, а другой как значения. Не подходящие ключи массивов должны быть исключены.*/
+/*12. Создать функцию, которая создает объект на основании двух представленных массивов используя один как ключи, а другой как значения. Не подходящие ключи массивов должны быть исключены.*/
 
 const array_combine = (keysArrey, valuesArrey) => {
   const result = {};
   const filterKeysArrey = keysArrey.filter(
-    key => typeof key === 'string' || typeof key === 'number'
+    (key) => typeof key === "string" || typeof key === "number"
   );
+
   for (let i = 0; i < filterKeysArrey.length; i++) {
     result[filterKeysArrey[i]] = valuesArrey[i];
   }
+
   return result;
 };
 
-/*array_combine(testData,testData2) // {1: 1, 2: 2, 24: 24, 85: 85, 1990: 1990, Vasya: 5, colya@example.com: 7, Rafshan: 8.1, ashan@example.com: undefined}*/
+console.log(array_combine(testData, testData2));
 
-/*Данные 2 задачи у меня не получилось решить*/
-/*7. Сделать функцию поиска значений в массиве.*/
-/*9. Создать функцию которая нормализует данные в массиве исключая или преобразуя не подходящие.*/
+/*3. Допустим, у вас есть функция primitiveMultiply, которая в 50% случаев перемножает 2 числа, а в остальных случаях выбрасывает исключение типа MultiplicatorUnitFailure. Напишите функцию, обёртывающую эту, и просто вызывающую её до тех пор, пока не будет получен успешный результат.*/
+
+const MultiplicatorUnitFailure = () => {};
+
+const primitiveMultiply = (a, b) => {
+  if (Math.random() < 0.5) {
+    return a * b;
+  } else {
+    throw new MultiplicatorUnitFailure();
+  }
+};
+
+const reliableMultiply = (a, b) => {
+  while (true) {
+    try {
+      return primitiveMultiply(a, b);
+    } catch (e) {
+      if (!(e instanceof MultiplicatorUnitFailure)) {
+        throw e;
+      }
+    }
+  }
+};
+
+console.log(reliableMultiply(8, 8));
