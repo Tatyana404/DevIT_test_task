@@ -24,11 +24,11 @@
 6. Выведите на экран все файлы в папке **var**;  
 7. Создайте новый файл **503.html** в папке **html** с следующим содержимым:
 
-><html>  
-> <head>  
->  <title>503</title>  
-> </head>  
-></html>  
+>   <html>  
+>       <head>  
+>           <title>503</title>  
+>       </head>  
+>   </html>  
 
 ## Пример решения  
 
@@ -75,13 +75,13 @@
 3.  Допустим, у вас есть функция primitiveMultiply, которая в 50% случаев перемножает 2 числа, а в остальных случаях выбрасывает исключение типа MultiplicatorUnitFailure. Напишите функцию, обёртывающую эту, и просто вызывающую её до тех пор, пока не будет получен успешный результат.
 >function MultiplicatorUnitFailure() {}  
 >function primitiveMultiply(a, b) {  
-> if (Math.random() < 0.5)  
->  return a * b;  
-> else  
->  throw new MultiplicatorUnitFailure();  
+>   if (Math.random() < 0.5)  
+>       return a * b;  
+>   else  
+>       throw new MultiplicatorUnitFailure();  
 >}  
 >function reliableMultiply(a, b) {  
->  // Ваш код  
+>   // Ваш код  
 >}  
 >console.log(reliableMultiply(8, 8));  
 
@@ -96,13 +96,13 @@
 >recuseLog(arr);  
 6. Написать функцию для выполнения параллельных вычислений без использования Promise.  
 >var a = function(one, two) {  
-> return one + two  
+>   return one + two  
 >}  
 >var b = function() {  
-> return false;  
+>   return false;  
 >}  
 >paralell([[a, [1, 2]], [b]], function(results) {  
-> console.log(results); // [3, false]  
+>   console.log(results); // [3, false]  
 >});  
 7. Сделать функцию поиска значений в массиве.  
 >Синтаксис: array_find(arr: array, search: string|regex): string|number[]|null  
@@ -152,14 +152,14 @@
 База данных MongoDB содержит коллекции:
 posts - Записи -
 >{  
-> "properties": {  
->  "\_id": { "bsonType": "objectId" },  
->  "title": { "bsonType": "string" },  
->  "content": { "bsonType": "string" },  
->  "author": { "bsonType": "string" },  
->  "like": { "bsonType": "int" },  
->  "dislike": { "bsonType": "int" }  
-> }  
+>   "properties": {  
+>       "\_id": { "bsonType": "objectId" },  
+>       "title": { "bsonType": "string" },  
+>       "content": { "bsonType": "string" },  
+>       "author": { "bsonType": "string" },  
+>       "like": { "bsonType": "int" },  
+>       "dislike": { "bsonType": "int" }  
+>   }  
 >}  
 
 Все команды вы выполняете в **mongo shell**  
