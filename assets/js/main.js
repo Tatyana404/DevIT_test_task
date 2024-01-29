@@ -105,11 +105,7 @@ console.log(cloneDeep(testData4));
 
 const arrayOfArrays = [[1, 2, 3], [4, 5], [6]];
 
-const customFlat = (arr) =>
-  arr.reduce(
-    (accumulator, currentValue) => accumulator.concat(currentValue),
-    []
-  );
+const customFlat = (arr) => arr.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
 
 console.log(customFlat(arrayOfArrays));
 
@@ -200,99 +196,54 @@ console.log(array_skip_until(testData, "asd"));
 
 /*9. Создать функцию, которая нормализует данные в массиве исключая или преобразуя не подходящие.*/
 
+const ageHelper = (arr) => arr.filter((value) => typeof value === "object" && !Array.isArray(value)).map(({ age }) => ({ age }));
+
+const floatHelper = (arr) => arr.filter((value) => typeof value === "number" && !Number.isInteger(value));
+
+const numberHelper = (arr) => arr.filter((value) => typeof value === "number");
+
 const array_normalize = (arr, schema, transform = false) => {
-  const checkAndTransform = (element, schema) => {
-    if (typeof schema === "object" && !Array.isArray(schema)) {
-      if (
-        typeof element !== "object" ||
-        element === null ||
-        Array.isArray(element)
-      ) {
-        return null;
-      }
+  if (typeof schema === "object") {
+    const helpersSchema = String(Object.values(schema));
 
-      const newObj = {};
-      let valid = true;
-
-      for (const key in schema) {
-        newObj[key] = checkAndTransform(element[key], schema[key]);
-
-        if (newObj[key] === null) {
-          valid = false;
-        }
-      }
-
-      return valid ? newObj : null;
-    }
-
-    if (schema === "array" && Array.isArray(element)) {
-      return element
-        .map((e) => checkAndTransform(e, schema))
-        .filter((e) => e !== null);
-    }
-
-    if (typeof element === "object" || typeof element === "function") {
-      return null;
-    }
-
-    switch (schema) {
-      case "string":
-        if (typeof element === "boolean" && !transform) {
-          return null;
-        }
-
-        return transform
-          ? typeof element !== "boolean"
-            ? String(element)
-            : null
-          : typeof element === "string"
-          ? element
-          : null;
-      case "number":
-        return transform
-          ? Number(element)
-          : typeof element === "number"
-          ? element
-          : null;
-      case "int":
-        if (transform) {
-          const parsed = parseInt(element);
-
-          return isNaN(parsed) ? null : parsed;
-        }
-
-        return Number.isInteger(element) ? element : null;
+    switch (helpersSchema) {
+      case transform && "float":
+        return ageHelper(arr);
       case "float":
-        if (transform) {
-          const parsed = parseFloat(element);
-
-          return isNaN(parsed) ? null : parsed;
-        }
-
-        return typeof element === "number" && !Number.isInteger(element)
-          ? element
-          : null;
-      case "bool":
-        return transform
-          ? Boolean(element)
-          : typeof element === "boolean"
-          ? element
-          : null;
-
+        return floatHelper(arr);
+      case transform && "int":
+      case "int":
+        return ageHelper(arr);
       default:
-        return null;
+        return arr;
     }
-  };
-
-  return arr.reduce((normalized, element) => {
-    const checkedElement = checkAndTransform(element, schema);
-
-    if (checkedElement !== null) {
-      normalized.push(checkedElement);
+  } else {
+    switch (schema) {
+      case transform && "string":
+        return arr.filter((value) => typeof value !== "object" && typeof value !== "boolean").map((value) => String(value));
+      case "string":
+        return arr.filter((value) => typeof value === "string");
+      case "bool":
+        return arr.filter((value) => typeof value === "boolean");
+      case transform && "number":
+      case "number":
+        return numberHelper(arr);
+      case transform && "int":
+      case "int":
+        return numberHelper(arr);
+      case "function":
+        return arr.filter((value) => typeof value === "function");
+      case transform && "float":
+        return numberHelper(arr);
+      case "float":
+        return floatHelper(arr);
+      case transform && "array":
+      case "array":
+        return arr.filter((value) => Array.isArray(value));
+      default:
+        return arr;
     }
-
-    return normalized;
-  }, []);
+  }
 };
 
 console.log(array_normalize(testData4, "string"));
@@ -333,9 +284,8 @@ console.log(array_pluck(testData3, "skills.php"));
 
 const array_combine = (keysArrey, valuesArrey) => {
   const result = {};
-  const filterKeysArrey = keysArrey.filter(
-    (key) => typeof key === "string" || typeof key === "number"
-  );
+
+  const filterKeysArrey = keysArrey.filter((key) => typeof key === "string" || typeof key === "number");
 
   for (let i = 0; i < filterKeysArrey.length; i++) {
     result[filterKeysArrey[i]] = valuesArrey[i];
