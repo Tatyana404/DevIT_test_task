@@ -166,6 +166,10 @@ parallel([[a, [1, 2]], [b]], function (results) {
 /*7. Сделать функцию поиска значений в массиве.*/
 
 const array_find = (arr, search) => {
+  if (!arr || !search) {
+    return null;
+  }
+
   let result;
 
   if (typeof search === "string") {
